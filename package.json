@@ -1,0 +1,66 @@
+{
+  "name": "atk-antigravity-live-progress",
+  "displayName": "Antigravity Live Task Progress",
+  "description": "Live real-time task progress bar and telemetry dashboard in the status bar for Antigravity Agent.",
+  "version": "1.0.2",
+  "publisher": "atk",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "atk.liveProgress.showDashboard",
+        "title": "Antigravity: Show Live Task Dashboard",
+        "category": "Antigravity"
+      },
+      {
+        "command": "atk.liveProgress.reset",
+        "title": "Antigravity: Reset Progress Tracker",
+        "category": "Antigravity"
+      },
+      {
+        "command": "atk.liveProgress.openProgressFile",
+        "title": "Antigravity: Open Progress State File",
+        "category": "Antigravity"
+      }
+    ],
+    "configuration": {
+      "title": "Antigravity Live Progress",
+      "properties": {
+        "antigravity.progress.barLength": {
+          "type": "integer",
+          "default": 10,
+          "description": "Length of the ASCII visual progress bar in characters."
+        },
+        "antigravity.progress.showToolName": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to display the active tool/action name in the status bar."
+        },
+        "antigravity.progress.alignment": {
+          "type": "string",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "default": "left",
+          "description": "Status bar alignment (left or right)."
+        },
+        "antigravity.progress.priority": {
+          "type": "integer",
+          "default": 100,
+          "description": "Status bar priority order."
+        }
+      }
+    }
+  },
+  "icon": "icon.png"
+}
